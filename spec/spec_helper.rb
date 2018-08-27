@@ -7,7 +7,7 @@ require "dotenv/load"
 require "vcr"
 
 ## Load spec/support files
-Gem.find_files("location_service/spec/support/**/*.rb").each { |path| require path }
+Dir[File.dirname(__FILE__) + "/support/**/*.rb"].each {|f| require f }
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

@@ -1,12 +1,7 @@
 module FedexLocationService
   class Request
-    def self.call(address)
+    def self.call(message)
       client = Savon.client(wsdl: FedexLocationService.configuration.wsdl)
-
-      message = FedexLocationService::Message.build(
-        FedexLocationService.configuration,
-        address
-      )
 
       begin
         @response = client.call(:search_locations, message: message)

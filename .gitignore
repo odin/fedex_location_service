@@ -16,3 +16,6 @@
 
 # simplecov
 /coverage
+
+# vcr cassettes
+/spec/vcr/**/*.yml
