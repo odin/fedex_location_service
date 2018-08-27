@@ -1,14 +1,13 @@
 #!/usr/bin/env ruby
 
 require "bundler/setup"
-require "location_service"
+require "fedex_location_service"
+require 'dotenv/load'
 
-# You can add fixtures and/or initialization code here to make experimenting
-# with your gem easier. You can also use a different console, if you like.
+Bundler.require
 
-# (If you use this, don't forget to add pry to your Gemfile!)
-# require "pry"
-# Pry.start
+require_relative '../spec/support/address.rb'
+require_relative '../spec/support/fedex_location_service_config.rb'
 
-require "irb"
-IRB.start(__FILE__)
+require "pry"
+Pry.start
