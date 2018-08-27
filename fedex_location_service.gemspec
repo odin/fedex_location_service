@@ -10,6 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["casey.ellett@gmail.com"]
 
   spec.summary       = %q{Interface for FedEx Location Services API.}
+  spec.homepage      = 'https://github.com/odin/fedex_location_service'
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
