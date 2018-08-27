@@ -36,11 +36,11 @@ end
 
 In order to build a message to pass to the FedEx API you will need to create an address object that resonds to the following:
 
-address_one
-address_two
-city
-state
-postal_code
+* address_one
+* address_two
+* city
+* state
+* postal_code
 
 This can be done with a Struct or with active_record address model. This can then be passed to FedexLocationService::Message.build() to generate the proper SOAP message.
 
@@ -56,7 +56,29 @@ message = FedexLocationService::Message.build(addr)
 
 The resulting message can then be passed to FedexLocationService::Request.call().
 
-This will return a Savon object that you can parse.
+```ruby
+response = FedexLocationService::Request.call(message)
+```
+
+This will return a Savon::Response object that you can parse.
+
+Included is a FedexLocationService::Locations.call() method that will extract the first 5 closest locations and return the addresses, distance and a map image.
+
+```ruby
+locations = FedexLocationService::Locations.call(response)
+
+locations.first =
+
+{
+  :company_name => "Walgreens 3685",
+  :street       => "5802 W Broad St",
+  :city         => "Richmond",
+  :state        => "VA",
+  :postal_code  => "23230",
+  :distance     => "0.275",
+  :map_url      => "https://maps.googleapis.com/maps/api/staticmap?size=350x350&zoom=15&markers=color:blue%7Clabel:A%7C37.59091,-77.50386&maptype=roadmap&sensor=false"
+}
+```
 
 ## Development
 
