@@ -14,7 +14,7 @@ RSpec.describe FedexLocationService::Request do
 
     vcr_options = { cassette_name: 'location_service_request' }
 
-    it 'Returns a SOAP object response from the Fedex Web Services Location API', vcr: 'location_service_request' do
+    it 'Returns a SOAP object response from the Fedex Web Services Location API', vcr: vcr_options do
       expect(FedexLocationService::Request.call(@message).class).to eq(Savon::Response)
     end
   end
