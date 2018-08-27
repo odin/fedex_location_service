@@ -1,4 +1,4 @@
-LocationService.configure do |c|
+FedexLocationService.configure do |c|
   c.wsdl           = ENV['WSDL']
   c.key            = ENV['KEY']
   c.password       = ENV['PASSWORD']

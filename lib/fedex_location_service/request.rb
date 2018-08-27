@@ -1,18 +1,11 @@
 module FedexLocationService
   class Request
     def self.call(address)
-      client = Savon.client(wsdl: LocationService.configuration.wsdl)
+      client = Savon.client(wsdl: FedexLocationService.configuration.wsdl)
 
-      message = LocationService::Message.build(
-        LocationService.configuration.key,
-        LocationService.configuration.password,
-        LocationService.configuration.account_number,
-        LocationService.configuration.meter_number,
-        address.address_one,
-        address.address_two ? address.address_two : '', # This cannot be nil.
-        address.city,
-        address.state,
-        address.postal_code
+      message = FedexLocationService::Message.build(
+        FedexLocationService.configuration,
+        address
       )
 
       begin

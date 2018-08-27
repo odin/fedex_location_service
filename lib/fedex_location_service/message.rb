@@ -1,19 +1,19 @@
 module FedexLocationService
   class Message
-    def self.build(key, password, account_number, meter_number, address_one, address_two, city, state, postal_code)
+    def self.build(configuration, address)
       { 'WebAuthenticationDetail' => [
           'ParentCredential' => [
-            'Key' => key,
-            'Password' => password
+            'Key' => configuration.key,
+            'Password' => configuration.password
           ],
           'UserCredential' => [
-            'Key' => key,
-            'Password' => password
+            'Key' => configuration.key,
+            'Password' => configuration.password
           ]
         ],
         'ClientDetail' => [
-          'AccountNumber' => account_number,
-          'MeterNumber' => meter_number
+          'AccountNumber' => configuration.account_number,
+          'MeterNumber' => configuration.meter_number
         ],
         'TransactionDetail' => [
           'CustomerTransactionId' => 'location_service gem'
@@ -28,12 +28,13 @@ module FedexLocationService
         'LocationsSearchCriterion' => 'ADDRESS',
         'Address' => [
           'StreetLines' => [
-            address_one,
-            address_two
+            address.address_one,
+            ## address_two cannot be nil
+            address.address_two ? address.address_two : ''
           ],
-          'City' => city,
-          'StateOrProvinceCode' => state,
-          'PostalCode' => postal_code,
+          'City' => address.city,
+          'StateOrProvinceCode' => address.state,
+          'PostalCode' => address.postal_code,
           'CountryCode' => 'US'
         ],
         'MultipleMatchesAction' => 'RETURN_ALL',

@@ -5,7 +5,7 @@ RSpec.describe FedexLocationService do
     expect(FedexLocationService::VERSION).not_to be nil
   end
 
-  describe "#configure" do
+  describe ".configure" do
     before do
       FedexLocationService.configure do |config|
         config.wsdl           = 'wsdl'
@@ -26,6 +26,12 @@ RSpec.describe FedexLocationService do
 
     after do
       FedexLocationService.reset
+    end
+  end
+
+  describe '.root' do
+    it 'returns a Pathname object that is the root directory of the gem' do
+      expect(FedexLocationService.root.class).to eq(Pathname)
     end
   end
 end
