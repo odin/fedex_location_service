@@ -8,8 +8,6 @@ RSpec.describe FedexLocationService::Request do
         FedexLocationService.configuration,
         address
       )
-
-      puts FedexLocationService.configuration.wsdl
     end
 
     vcr_options = { cassette_name: 'location_service_request' }
