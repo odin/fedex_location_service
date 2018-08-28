@@ -42,7 +42,7 @@ In order to build a message to pass to the FedEx API you will need to create an 
 * state
 * postal_code
 
-This can be done with a Struct or with active_record address model. This can then be passed to FedexLocationService::Message.build() to generate the proper SOAP message.
+This can be done with a Struct or with active_record model. This can then be passed to FedexLocationService::Message.build() to generate the proper SOAP message.
 
 Example:
 
