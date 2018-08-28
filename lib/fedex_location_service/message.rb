@@ -30,7 +30,7 @@ module FedexLocationService
           'StreetLines' => [
             address.address_one,
             ## address_two cannot be nil
-            address.address_two ? address.address_two : ''
+            address.address_two || ''
           ],
           'City' => address.city,
           'StateOrProvinceCode' => address.state,
@@ -50,7 +50,7 @@ module FedexLocationService
           'RequiredLocationAttributes' => [
             'WEEKDAY_EXPRESS_HOLD_AT_LOCATION'
           ],
-          'ResultsRequested' => 5,
+          'ResultsRequested' => 5
         ]
       }
     end

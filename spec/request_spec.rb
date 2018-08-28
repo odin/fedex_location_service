@@ -1,4 +1,4 @@
-require "spec_helper"
+require 'spec_helper'
 
 RSpec.describe FedexLocationService::Request do
   describe '.call(:search_locations, message: message)' do
@@ -17,7 +17,7 @@ RSpec.describe FedexLocationService::Request do
         expect(FedexLocationService::Request.call(@message).class).to eq(Savon::Response)
       end
 
-      it 'returns a SOAP object response with a status of "SUCCESS"', vcr: vcr_options do
+      it 'returns a SOAP object response with a status of \'SUCCESS\'', vcr: vcr_options do
         expect(
           FedexLocationService::Request.call(@message).body[:search_locations_reply][:highest_severity]
         ).to eq('SUCCESS')
@@ -39,7 +39,7 @@ RSpec.describe FedexLocationService::Request do
         expect(FedexLocationService::Request.call(@message).class).to eq(Savon::Response)
       end
 
-      it 'returns a SOAP object response with a status of "ERROR"', vcr: vcr_options do
+      it 'returns a SOAP object response with a status of \'ERROR\'', vcr: vcr_options do
         expect(
           FedexLocationService::Request.call(@message).body[:search_locations_reply][:highest_severity]
         ).to eq('ERROR')
@@ -61,7 +61,7 @@ RSpec.describe FedexLocationService::Request do
         expect(FedexLocationService::Request.call(@message).class).to eq(Hash)
       end
 
-      it 'returns a "cause" of "UnrecoverableClientError"', vcr: vcr_options do
+      it 'returns a \'cause\' of \'UnrecoverableClientError\'', vcr: vcr_options do
         expect(FedexLocationService::Request.call(@message)[:cause]).to eq('UnrecoverableClientError')
       end
     end

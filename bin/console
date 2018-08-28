@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
-require "bundler/setup"
-require "fedex_location_service"
+require 'bundler/setup'
+require 'fedex_location_service'
 require 'dotenv/load'
 
 Bundler.require
@@ -9,5 +9,5 @@ Bundler.require
 require_relative '../spec/support/address.rb'
 require_relative '../spec/support/fedex_location_service_config.rb'
 
-require "pry"
+require 'pry'
 Pry.start

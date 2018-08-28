@@ -8,8 +8,6 @@ module FedexLocationService
       rescue Savon::SOAPFault => error
         @response = error.to_hash[:fault][:detail]
       end
-
-      return @response
     end
   end
 end

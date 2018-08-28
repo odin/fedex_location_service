@@ -24,6 +24,6 @@ module FedexLocationService
   end
 
   def self.root
-    Pathname.new File.expand_path('../..', __FILE__)
+    Pathname.new File.expand_path('..', __dir__)
   end
 end

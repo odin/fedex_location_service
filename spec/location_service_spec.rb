@@ -1,12 +1,12 @@
-require "spec_helper"
+require 'spec_helper'
 
 RSpec.describe FedexLocationService do
-  it "has a version number" do
+  it 'has a version number' do
     expect(FedexLocationService::VERSION).not_to be nil
   end
 
-  describe ".configure" do
-    it "returns the configured options" do
+  describe '.configure' do
+    it 'returns the configured options' do
       expect(FedexLocationService.configuration.wsdl).to eq(ENV['WSDL'])
       expect(FedexLocationService.configuration.key).to eq(ENV['KEY'])
       expect(FedexLocationService.configuration.password).to eq(ENV['PASSWORD'])
