@@ -6,7 +6,7 @@ module FedexLocationService
       begin
         @response = client.call(:search_locations, message: message)
       rescue Savon::SOAPFault => error
-        puts error.http.inspect
+        @response = error.to_hash[:fault][:detail]
       end
 
       return @response

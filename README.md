@@ -62,6 +62,16 @@ response = FedexLocationService::Request.call(message)
 
 This will return a Savon::Response object that you can parse.
 
+The FedEx Location Service API will return a status of 'SUCCESS' if locations have been found for the address provided in the message.
+
+The FedEx Location Service API will return a status of 'ERROR' if no locations have been found for the address provided in the message.
+
+The method will rescue from any Savon::SOAPFault exception and return a hash that consists of:
+
+* :cause
+* :code
+* :desc
+
 Included is a FedexLocationService::Locations.call() method that will extract the first 5 closest locations and return the addresses, distance and a map image.
 
 ```ruby
