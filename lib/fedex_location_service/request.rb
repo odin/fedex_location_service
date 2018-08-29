@@ -6,7 +6,15 @@ module FedexLocationService
       begin
         @response = client.call(:search_locations, message: message)
       rescue Savon::SOAPFault => error
-        @response = error.to_hash[:fault][:detail]
+        @response = error
+        #@response = {
+        #  message: error.to_hash[:fault][:detail],
+        #  body: {
+        #    search_locations_response: {
+        #      highest_severity: 'ERROR'
+        #    }
+        #  }
+        #}
       end
     end
   end

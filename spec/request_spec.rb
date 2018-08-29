@@ -13,13 +13,13 @@ RSpec.describe FedexLocationService::Request do
 
       vcr_options = { cassette_name: 'valid_location_service_request' }
 
-      it 'returns a SOAP object response from the Fedex Web Services Location API', vcr: vcr_options do
+      it 'returns a Savon::Response object', vcr: vcr_options do
         expect(FedexLocationService::Request.call(@message).class).to eq(Savon::Response)
       end
 
-      it 'returns a SOAP object response with a status of \'SUCCESS\'', vcr: vcr_options do
+      it 'returns a status of \'SUCCESS\'', vcr: vcr_options do
         expect(
-          FedexLocationService::Request.call(@message).body[:search_locations_reply][:highest_severity]
+          FedexLocationService::Request.call(@message).to_hash[:search_locations_reply][:highest_severity]
         ).to eq('SUCCESS')
       end
     end
@@ -35,13 +35,13 @@ RSpec.describe FedexLocationService::Request do
 
       vcr_options = { cassette_name: 'location_service_request_no_results' }
 
-      it 'returns a SOAP object response from the Fedex Web Services Location API', vcr: vcr_options do
+      it 'returns a Savon::Response object', vcr: vcr_options do
         expect(FedexLocationService::Request.call(@message).class).to eq(Savon::Response)
       end
 
-      it 'returns a SOAP object response with a status of \'ERROR\'', vcr: vcr_options do
+      it 'returns a status of \'ERROR\'', vcr: vcr_options do
         expect(
-          FedexLocationService::Request.call(@message).body[:search_locations_reply][:highest_severity]
+          FedexLocationService::Request.call(@message).to_hash[:search_locations_reply][:highest_severity]
         ).to eq('ERROR')
       end
     end
@@ -57,12 +57,12 @@ RSpec.describe FedexLocationService::Request do
 
       vcr_options = { cassette_name: 'invalid_location_service_request' }
 
-      it 'returns a hash that contains the error message', vcr: vcr_options do
-        expect(FedexLocationService::Request.call(@message).class).to eq(Hash)
+      it 'returns a Savon::SOAPFault object', vcr: vcr_options do
+        expect(FedexLocationService::Request.call(@message).class).to eq(Savon::SOAPFault)
       end
 
-      it 'returns a \'cause\' of \'UnrecoverableClientError\'', vcr: vcr_options do
-        expect(FedexLocationService::Request.call(@message)[:cause]).to eq('UnrecoverableClientError')
+      it 'returns a status of \'FATAL\'', vcr: vcr_options do
+        expect(FedexLocationService::Request.call(@message).to_hash[:search_locations_reply][:highest_severity]).to eq('FATAL')
       end
     end
   end
