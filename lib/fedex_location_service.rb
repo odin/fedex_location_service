@@ -2,6 +2,7 @@ require 'fedex_location_service/configuration'
 require 'fedex_location_service/locations'
 require 'fedex_location_service/message'
 require 'fedex_location_service/request'
+require 'fedex_location_service/response'
 require 'fedex_location_service/version'
 
 require 'savon'
