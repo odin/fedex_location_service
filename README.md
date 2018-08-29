@@ -68,7 +68,7 @@ This retuned Savon object can then be passed to FedexLocationService::Response.b
 parsed_response = FedexLocationService::Response.build(response)
 ```
 
-Depending on how the request went the parsed_response will have a differnt status:
+Depending on how the request went the parsed_response will have a different status:
 
 ```ruby
 ## The address was correct and there are FedEx locations:
