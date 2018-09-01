@@ -13,9 +13,10 @@ RSpec.describe FedexLocationService::Locations do
     vcr_options = { cassette_name: 'location_service_request' }
 
     it 'returns a nice hash of the 5 closest locations', vcr: vcr_options do
-      response = FedexLocationService::Request.call(@message)
+      response        = FedexLocationService::Request.call(@message)
+      parsed_response = FedexLocationService::Response.build(response)
 
-      expect(FedexLocationService::Locations.call(response).first).to eq(
+      expect(FedexLocationService::Locations.call(parsed_response).first).to eq(
         {
           :company_name => 'Walgreens 3685',
           :street       => '5802 W Broad St',
