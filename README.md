@@ -1,4 +1,4 @@
-# LocationService
+# FedExLocationService
 
 This gem interfaces with the FedEx Location Services API.
 
