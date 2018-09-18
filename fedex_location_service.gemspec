@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ['odin - (Casey Ellett)']
   spec.email         = ['casey.ellett@gmail.com']
 
-  spec.summary       = %q(Interface for FedEx Location Services API.)
+  spec.summary       = 'Interface for FedEx Location Services API.'
   spec.homepage      = 'https://github.com/odin/fedex_location_service'
   spec.license       = 'MIT'
 

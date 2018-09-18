@@ -33,12 +33,6 @@ Style/Documentation:
     - 'lib/fedex_location_service/request.rb'
     - 'lib/fedex_location_service/response.rb'
 
-# Offense count: 1
-# Cop supports --auto-correct.
-Style/UnneededPercentQ:
-  Exclude:
-    - 'fedex_location_service.gemspec'
-
 # Offense count: 17
 # Configuration parameters: AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.
 # URISchemes: http, https
