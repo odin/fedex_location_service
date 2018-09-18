@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module FedexLocationService
   class Configuration
     attr_accessor :wsdl

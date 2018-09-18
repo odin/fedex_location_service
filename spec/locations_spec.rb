@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 RSpec.describe FedexLocationService::Locations do
@@ -17,15 +19,13 @@ RSpec.describe FedexLocationService::Locations do
       parsed_response = FedexLocationService::Response.build(response)
 
       expect(FedexLocationService::Locations.call(parsed_response).first).to eq(
-        {
-          :company_name => 'Walgreens 3685',
-          :street       => '5802 W Broad St',
-          :city         => 'Richmond',
-          :state        => 'VA',
-          :postal_code  => '23230',
-          :distance     => '0.275',
-          :map_url      => 'https://maps.googleapis.com/maps/api/staticmap?size=350x350&zoom=15&markers=color:blue%7Clabel:A%7C37.59091,-77.50386&maptype=roadmap&sensor=false'
-        }
+        company_name: 'Walgreens 3685',
+        street: '5802 W Broad St',
+        city: 'Richmond',
+        state: 'VA',
+        postal_code: '23230',
+        distance: '0.275',
+        map_url: 'https://maps.googleapis.com/maps/api/staticmap?size=350x350&zoom=15&markers=color:blue%7Clabel:A%7C37.59091,-77.50386&maptype=roadmap&sensor=false'
       )
     end
   end

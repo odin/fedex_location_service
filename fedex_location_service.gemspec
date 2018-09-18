@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 lib = File.expand_path('lib', __dir__)
 
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
@@ -9,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ['odin - (Casey Ellett)']
   spec.email         = ['casey.ellett@gmail.com']
 
-  spec.summary       = %q{Interface for FedEx Location Services API.}
+  spec.summary       = %q(Interface for FedEx Location Services API.)
   spec.homepage      = 'https://github.com/odin/fedex_location_service'
   spec.license       = 'MIT'
 
@@ -33,14 +35,14 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'awesome_print'
   spec.add_development_dependency 'bundler', '~> 1.15'
   spec.add_development_dependency 'dotenv'
-  spec.add_development_dependency 'rake', '~> 10.0'
-  spec.add_development_dependency 'rspec', '~> 3.0'
   spec.add_development_dependency 'guard'
   spec.add_development_dependency 'guard-rspec'
-  spec.add_development_dependency 'webmock'
-  spec.add_development_dependency 'vcr'
+  spec.add_development_dependency 'rake', '~> 10.0'
+  spec.add_development_dependency 'rspec', '~> 3.0'
   spec.add_development_dependency 'rubocop'
   spec.add_development_dependency 'simplecov'
+  spec.add_development_dependency 'vcr'
+  spec.add_development_dependency 'webmock'
 
   spec.add_dependency 'savon'
 end

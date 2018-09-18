@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module FedexLocationService
   class Locations
     def self.call(response)
@@ -19,7 +21,6 @@ module FedexLocationService
           }
 
           location_details << address
-
         end
 
         return location_details

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'fedex_location_service/configuration'
 require 'fedex_location_service/locations'
 require 'fedex_location_service/message'

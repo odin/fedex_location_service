@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module FedexLocationService
   class Response
     def self.build(message)

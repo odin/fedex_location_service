@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module FedexLocationService
   class Request
     def self.call(message)

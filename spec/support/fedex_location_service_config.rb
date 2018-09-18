@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FedexLocationService.configure do |c|
   c.wsdl           = ENV['WSDL']
   c.key            = ENV['KEY']

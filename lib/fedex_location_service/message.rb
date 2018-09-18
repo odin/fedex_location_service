@@ -1,16 +1,18 @@
+# frozen_string_literal: true
+
 module FedexLocationService
   class Message
     def self.build(configuration, address)
       { 'WebAuthenticationDetail' => [
-          'ParentCredential' => [
-            'Key' => configuration.key,
-            'Password' => configuration.password
-          ],
-          'UserCredential' => [
-            'Key' => configuration.key,
-            'Password' => configuration.password
-          ]
+        'ParentCredential' => [
+          'Key' => configuration.key,
+          'Password' => configuration.password
         ],
+        'UserCredential' => [
+          'Key' => configuration.key,
+          'Password' => configuration.password
+        ]
+      ],
         'ClientDetail' => [
           'AccountNumber' => configuration.account_number,
           'MeterNumber' => configuration.meter_number
@@ -51,8 +53,7 @@ module FedexLocationService
             'WEEKDAY_EXPRESS_HOLD_AT_LOCATION'
           ],
           'ResultsRequested' => 5
-        ]
-      }
+        ] }
     end
   end
 end
