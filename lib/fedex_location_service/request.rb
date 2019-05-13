@@ -7,8 +7,8 @@ module FedexLocationService
 
       begin
         @response = client.call(:search_locations, message: message)
-      rescue Savon::SOAPFault => error
-        @response = error
+      rescue Savon::SOAPFault => e
+        @response = e
       end
     end
   end
