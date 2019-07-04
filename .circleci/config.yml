@@ -13,4 +13,4 @@ jobs:
           name: Code Has Arrived
           command: |
             ls -al
-            echo '^^^That should look familiar^^^'
+            echo 'Hello Code!'
